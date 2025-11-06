@@ -1,14 +1,12 @@
-# 🧠 Monitoring Project — Prometheus + Grafana (AITU, IT-2306)
+#  Monitoring Project — Prometheus + Grafana (AITU, IT-2306)
 
-### 👩‍💻 Student: Alena Zinchenko  
-### 📅 Week 9 — Research Methods and Tools  
-### 💯 Task: Build and demonstrate 3 dashboards + alerts
+### Student: Aruzhan Saparkhankyzy
 
 ---
 
-## 📊 DASHBOARDS OVERVIEW
+## DASHBOARDS OVERVIEW
 
-### 1️⃣ Database Exporter (MySQL)
+###  Database Exporter (MySQL)
 **Purpose:** Monitors database activity and connection statistics.
 
 **Metrics used:**
@@ -23,12 +21,12 @@
 - Threads running
 - Uptime
 
-✅ **Target:** `mysql_exporter :9104`  
-✅ **Status:** UP 🟢
+ **Target:** `mysql_exporter :9104`  
+ **Status:** UP 
 
 ---
 
-### 2️⃣ Node Exporter (Windows System Monitoring)
+### 2️ Node Exporter (Windows System Monitoring)
 **Purpose:** Tracks CPU, memory, and disk utilization on the local machine.
 
 **Metrics used:**
@@ -44,12 +42,12 @@
 - System Threads
 - Network Bytes Total
 
-✅ **Target:** `windows_exporter :9182`  
-✅ **Status:** UP 🟢
+ **Target:** `windows_exporter :9182`  
+ **Status:** UP �
 
 ---
 
-### 3️⃣ Custom Exporter (Python)
+###  Custom Exporter (Python)
 **Purpose:** Simulates environmental metrics (temperature & humidity).  
 Runs locally on port `:8000`.
 
@@ -72,26 +70,26 @@ if __name__ == "__main__":
 ```
 
 **Grafana panels:**
-- 🌡️ Temperature (°C)
-- 💧 Humidity (%)
+-  Temperature (°C)
+-  Humidity (%)
 
-✅ **Target:** `custom_exporter :8000`  
-✅ **Status:** UP 🟢
+ **Target:** `custom_exporter :8000`  
+ **Status:** UP 
 
 ---
 
-## 🔔 ALERT RULES
+##  ALERT RULES
 
 | Alert Name | Condition | Duration | Message |
 |-------------|------------|-----------|----------|
-| ⚠️ **High Temperature Alert** | `avg(custom_temperature_celsius) > 30` | For 1m | “Temperature exceeded 30°C on Custom Exporter” |
-| 💧 **High Humidity Alert** | `avg(custom_humidity_percent) > 70` | For 1m | “Humidity exceeded 70% on Custom Exporter” |
+|  **High Temperature Alert** | `avg(custom_temperature_celsius) > 30` | For 1m | “Temperature exceeded 30°C on Custom Exporter” |
+|  **High Humidity Alert** | `avg(custom_humidity_percent) > 70` | For 1m | “Humidity exceeded 70% on Custom Exporter” |
 
 Alerts automatically switch to **“Firing”** in Grafana if thresholds are exceeded.
 
 ---
 
-## ⚙️ COMPONENTS USED
+##  COMPONENTS USED
 
 | Component | Role |
 |------------|------|
@@ -103,7 +101,7 @@ Alerts automatically switch to **“Firing”** in Grafana if thresholds are exc
 
 ---
 
-## 🧩 PROJECT STRUCTURE
+##  PROJECT STRUCTURE
 
 ```
 monitoring_project/
@@ -118,7 +116,7 @@ monitoring_project/
 
 ---
 
-## 🚀 HOW TO RUN
+##  HOW TO RUN
 
 ### Step 1. Start Prometheus
 ```bash
@@ -142,20 +140,20 @@ Import dashboards:
 
 ---
 
-## 🧠 RESULTS
+##  RESULTS
 - 3 dashboards working in real-time  
 - 5 exporters monitored (Prometheus + 3 custom targets + Grafana itself)  
 - 2 alert rules successfully tested (temperature & humidity)  
 - All metrics visualized and verified via `localhost:9090/targets`  
 
-✅ **All systems operational**
+ **All systems operational**
 
 ---
 
-## 🏁 GITHUB REPOSITORY
+##  GITHUB REPOSITORY
 Link: *to be added after upload*  
 Folder: `monitoring_project_final`
 
----
 
-**© Astana IT University — Research Methods & Tools, 2025**
+
+

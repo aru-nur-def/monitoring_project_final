@@ -1,0 +1,79 @@
+{
+  "annotations": {
+    "list": []
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "panels": [
+    {
+      "type": "gauge",
+      "title": "CPU Usage %",
+      "targets": [
+        {
+          "expr": "100 - (avg by(instance)(irate(windows_cpu_time_total{mode=\"idle\"}[5m])) * 100)",
+          "legendFormat": "{{instance}}"
+        }
+      ],
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "orientation": "horizontal",
+        "showThresholdLabels": true
+      }
+    },
+    {
+      "type": "gauge",
+      "title": "Memory Usage %",
+      "targets": [
+        {
+          "expr": "(1 - windows_os_physical_memory_free_bytes / windows_cs_physical_memory_bytes) * 100",
+          "legendFormat": "{{instance}}"
+        }
+      ],
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "orientation": "horizontal"
+      }
+    },
+    {
+      "type": "gauge",
+      "title": "Disk Free Space %",
+      "targets": [
+        {
+          "expr": "(windows_logical_disk_free_bytes / windows_logical_disk_size_bytes) * 100",
+          "legendFormat": "{{volume}}"
+        }
+      ],
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "orientation": "horizontal"
+      }
+    },
+    {
+      "type": "graph",
+      "title": "System Threads",
+      "targets": [
+        {
+          "expr": "windows_system_threads",
+          "legendFormat": "Threads"
+        }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "Network Bytes Total",
+      "targets": [
+        {
+          "expr": "irate(windows_net_bytes_total[5m])",
+          "legendFormat": "{{nic}}"
+        }
+      ]
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 37,
+  "style": "dark",
+  "title": "Windows System Monitoring",
+  "timezone": "",
+  "version": 1
+}

@@ -1,0 +1,28 @@
+global:
+  scrape_interval: 5s    # как часто собирать метрики
+
+scrape_configs:
+  # --- 1️⃣ Prometheus сам себя ---
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # --- 2️⃣ Node Exporter (мониторинг системы) ---
+  - job_name: 'node_exporter'
+    static_configs:
+      - targets: ['localhost:9100']
+
+  # --- 3️⃣ MySQL Exporter (база данных) ---
+  - job_name: 'mysql_exporter'
+    static_configs:
+      - targets: ['localhost:9104']
+
+  # --- 4️⃣ Custom Exporter (Python) ---
+  - job_name: 'custom_exporter'
+    static_configs:
+      - targets: ['localhost:8000']
+
+  # --- 5️⃣ Windows Exporter (системные метрики Windows) ---
+  - job_name: 'windows_exporter'
+    static_configs:
+      - targets: ['localhost:9182']
